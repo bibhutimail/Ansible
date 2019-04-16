@@ -41,7 +41,7 @@
     
 - name: untar sources
   unarchive:
-    src: "/opt/{{ sources | basename }}"
+    src: "/opt/{{ sources_prometheus | basename }}"
     dest: "{{ sources_dst }}"
     owner: "{{ user }}"
     group: "{{ group }}"
