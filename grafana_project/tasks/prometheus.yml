@@ -1,0 +1,9 @@
+---
+- name: download component sources
+  get_url:
+    url: "{{ sources_prometheus }}"
+    dest: "/opt/"
+    validate_certs: "no"
+    tmp_dest: /tmp/
+  when: sources_result.stat.exists == False
+  ...
