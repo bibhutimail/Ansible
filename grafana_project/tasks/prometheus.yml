@@ -48,30 +48,30 @@
 #     remote_src: "yes"
 #     extra_opts: [--strip-components=1]
     
-- name: Copy files with multiple changes
-  copy:
-    src: "{{ item.src }}"
-    dest: "{{ item.dest }}"
-    owner: "{{item.owner}}"
-    group: "{{item.group}}"
-    remote_src: "yes"
-  with_items:
-    - { src: '/opt/tmp/prometheus', dest: '/usr/local/bin/', owner: 'prometheus', group: 'prometheus'}
-    - { src: '/opt/tmp/promtool', dest: '/usr/local/bin/', owner: 'prometheus', group: 'prometheus'}
-    
-- name: Copy  prometheus.yml 
-  template:
-    src: "{{ template_directory }}/prometheus.yml"
-    dest: "/etc/prometheus/"
-    owner: "{{ user }}"
-    group: "{{ group }}" 
+# - name: Copy files with multiple changes
+#   copy:
+#     src: "{{ item.src }}"
+#     dest: "{{ item.dest }}"
+#     owner: "{{item.owner}}"
+#     group: "{{item.group}}"
 #     remote_src: "yes"
+#   with_items:
+#     - { src: '/opt/tmp/prometheus', dest: '/usr/local/bin/', owner: 'prometheus', group: 'prometheus'}
+#     - { src: '/opt/tmp/promtool', dest: '/usr/local/bin/', owner: 'prometheus', group: 'prometheus'}
+    
+# - name: Copy  prometheus.yml 
+#   template:
+#     src: "{{ template_directory }}/prometheus.yml"
+#     dest: "/etc/prometheus/"
+#     owner: "{{ user }}"
+#     group: "{{ group }}" 
+
 - name: Webapp | Copy files
   copy:
     src: "{{ item.source}}"
     dest: "{{ item.dest }}"
     remote_src: "yes"
-    directory_mode=yes
+  directory_mode=yes
   with_items:
     - { source: '/opt/tmp/consoles', dest: '/etc/prometheus/' }
     - { source: '/opt/tmp/console_libraries', dest: '/etc/prometheus/' }
