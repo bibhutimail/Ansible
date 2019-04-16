@@ -1,4 +1,20 @@
 ---
+- name: Creation of necessary groups
+  group:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ grps }}"
+
+- name: Creation of necessary users
+  user:
+    name: "{{ user }}"
+    groups: "{{ item }}"
+    append: true
+    home: no
+    expires: -1
+    state: present
+  loop: "{{ grps }}"
+  
 - name: check if sources already exist
   stat:
     path: "/opt/{{ sources_prometheus | basename }}"
@@ -12,4 +28,12 @@
     dest: "/opt/"
     validate_certs: "no"
     tmp_dest: /tmp/
+    
+- name: untar sources
+  unarchive:
+    src: "/opt/{{ sources | basename }}"
+    dest: "{{ sources_dst }}"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    remote_src: "yes"
 ...
