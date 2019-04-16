@@ -10,7 +10,7 @@
     name: "{{ user }}"
     groups: "{{ item }}"
     append: true
-    home: no
+    create_home: no
     expires: -1
     state: present
   loop: "{{ grps }}"
