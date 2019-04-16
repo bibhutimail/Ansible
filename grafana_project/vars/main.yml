@@ -6,3 +6,7 @@ user: prometheus
 group: prometheus
 grps:
   - prometheus
+directories:
+  - "/etc/prometheus"
+  - "/var/lib/prometheus"
+  
