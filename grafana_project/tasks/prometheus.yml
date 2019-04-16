@@ -72,9 +72,9 @@
 - name: Move console_libraries directory to /etc/prometheus/
   command: cp -r /opt/tmp/console_libraries /etc/prometheus/
   
-- name: Move consoles directory to /etc/prometheus/
+- name: Change owner /etc/prometheus/console
   command: chown -R {{ user }}:{{ group }} /etc/prometheus/consoles
   
-- name: Move consoles directory to /etc/prometheus/
+- name: Change owner of /etc/prometheus/console_libraries
   command: chown -R {{ user }}:{{ group }} /etc/prometheus/console_libraries
 ...
