@@ -66,6 +66,15 @@
 #     owner: "{{ user }}"
 #     group: "{{ group }}" 
 
-- name: Move directory contents
+- name: Move consoles directory to /etc/prometheus/
   command: cp -r /opt/tmp/consoles /etc/prometheus/
+  
+- name: Move console_libraries directory to /etc/prometheus/
+  command: cp -r /opt/tmp/console_libraries /etc/prometheus/
+  
+- name: Move consoles directory to /etc/prometheus/
+  command: chown -R {{ user }}:{{ group }} /etc/prometheus/consoles
+  
+- name: Move consoles directory to /etc/prometheus/
+  command: chown -R {{ user }}:{{ group }} /etc/prometheus/console_libraries
 ...
