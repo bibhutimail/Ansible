@@ -7,5 +7,4 @@
     dest: "/opt/"
     validate_certs: "no"
     tmp_dest: /tmp/
-  when: sources_result.stat.exists == False
 ...
