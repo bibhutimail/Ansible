@@ -66,4 +66,11 @@
     owner: "{{ user }}"
     group: "{{ group }}" 
 #     remote_src: "yes"
+- name: Webapp | Copy files
+  synchronize:
+    src: "{{ item.source}}"
+    dest: "{{ item.dest }}"
+  with_items:
+    - { source: '/opt/tmp/consoles', dest: '/etc/prometheus/' }
+    - { source: '/opt/tmp/console_libraries', dest: '/etc/prometheus/' }
 ...
