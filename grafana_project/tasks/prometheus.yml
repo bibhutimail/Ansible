@@ -1,7 +1,7 @@
 ---
 - name: check if sources already exist
   stat:
-    path: "/opt/{{ sources_prometheu | basename }}"
+    path: "/opt/{{ sources_prometheus | basename }}"
   register: sources_result
   
 - name: download component sources
