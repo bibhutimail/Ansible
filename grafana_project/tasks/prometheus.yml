@@ -77,4 +77,9 @@
   
 - name: Change owner of /etc/prometheus/console_libraries
   command: chown -R {{ user }}:{{ group }} /etc/prometheus/console_libraries
+  
+- name: Copy service file 
+  copy:
+    src: prometheus.service
+    dest: /etc/systemd/system
 ...
