@@ -70,7 +70,7 @@
   copy:
     src: "{{ item.source}}"
     dest: "{{ item.dest }}"
-  remote_src: "yes"
+    remote_src: "yes"
   with_items:
     - { source: '/opt/tmp/consoles', dest: '/etc/prometheus/' }
     - { source: '/opt/tmp/console_libraries', dest: '/etc/prometheus/' }
