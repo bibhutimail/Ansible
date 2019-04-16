@@ -55,14 +55,14 @@
     owner: "{{ user }}"
     group: "{{ group }}"
     
- - name: Configure Systemctl service, Copy promtool
+- name: Configure Systemctl service, Copy promtool
    copy:
     src: "/opt/tmp/promtool"
     dest: "/usr/local/bin/"
     owner: "{{ user }}"
     group: "{{ group }}"
   
- - name: Configure Systemctl service, Copy promtool
+- name: Configure Systemctl service, Copy promtool
   template:
     src: "/opt/tmp/promtool"
     dest: "/usr/local/bin/"
