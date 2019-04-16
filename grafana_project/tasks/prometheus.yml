@@ -65,5 +65,5 @@
     dest: "/etc/prometheus/"
     owner: "{{ user }}"
     group: "{{ group }}" 
-    remote_src: "yes"
+#     remote_src: "yes"
 ...
