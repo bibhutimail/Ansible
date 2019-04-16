@@ -11,6 +11,7 @@
     groups: "{{ item }}"
     append: true
     create_home: no
+    shell: /bin/false
     expires: -1
     state: present
   loop: "{{ grps }}"
