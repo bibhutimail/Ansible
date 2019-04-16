@@ -16,6 +16,15 @@
     state: present
   loop: "{{ grps }}"
   
+- name: Creation of necessary directories
+  file:
+    path: "{{ item }}"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    state: directory
+    mode: 0755
+  loop: "{{ directories }}"
+  
 - name: check if sources already exist
   stat:
     path: "/opt/{{ sources_prometheus | basename }}"
