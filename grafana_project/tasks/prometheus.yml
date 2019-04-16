@@ -66,13 +66,6 @@
 #     owner: "{{ user }}"
 #     group: "{{ group }}" 
 
-- name: Webapp | Copy files
-  copy:
-    src: "{{ item.source}}"
-    dest: "{{ item.dest }}"
-    remote_src: "yes"
-  directory_mode: yes
-  with_items:
-    - { source: '/opt/tmp/consoles', dest: '/etc/prometheus/' }
-    - { source: '/opt/tmp/console_libraries', dest: '/etc/prometheus/' }
+- name: Move directory contents
+  command: cp -r /opt/tmp/consoles /etc/prometheus/
 ...
