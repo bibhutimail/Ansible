@@ -54,6 +54,7 @@
     dest: "{{ item.dest }}"
     owner: "{{item.owner}}"
     group: "{{item.group}}"
+    remote_src: "yes"
   with_items:
     - { src: '/opt/tmp/prometheus', dest: '/usr/local/bin/', owner: 'prometheus', group: 'prometheus'}
     - { src: '/opt/tmp/promtool', dest: '/usr/local/bin/', owner: 'prometheus', group: 'prometheus'}
@@ -63,5 +64,6 @@
     src: "{{ template_directory }}/prometheus.yml"
     dest: "/etc/prometheus/"
     owner: "{{ user }}"
-    group: "{{ group }}"  
+    group: "{{ group }}" 
+    remote_src: "yes"
 ...
