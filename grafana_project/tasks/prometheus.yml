@@ -82,4 +82,14 @@
   copy:
     src: prometheus.service
     dest: /etc/systemd/system
+    
+- name: Enable prometheus service 
+  service:
+    name: prometheus
+    enabled: yes
+
+- name: Start prometheus service
+  service:
+    name: prometheus
+    state: restarted
 ...
