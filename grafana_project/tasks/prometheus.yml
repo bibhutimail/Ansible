@@ -1,7 +1,7 @@
 ---
 - name: download component sources
   become: true
-  become_user: bnm
+  become_user: root
   get_url:
     url: "{{ sources_prometheus }}"
     dest: "/opt/"
