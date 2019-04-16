@@ -1,4 +1,9 @@
 ---
+- name: check if sources already exist
+  stat:
+    path: "/opt/{{ sources_prometheu | basename }}"
+  register: sources_result
+  
 - name: download component sources
   become: true
   become_user: root
