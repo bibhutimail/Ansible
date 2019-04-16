@@ -5,4 +5,4 @@ sources_dst: /opt
 user: prometheus
 group: prometheus
 grps:
-  - oqtbe
+  - prometheus
