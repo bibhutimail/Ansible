@@ -1,4 +1,9 @@
----  
+---
+- name: Yum repo add for grafana
+  copy:
+    src: "grafana.repo"
+    dest: "/etc/yum.repos.d/"
+    
 - name: Install Grafana using RPM
   yum:
     name: "{{ sources_grafana }}"
