@@ -1,7 +1,7 @@
 ---  
 - name: Install Grafana using RPM
   yum:
-    name: {{ sources_grafana }}
+    name: "{{ sources_grafana }}"
     state: present
   
 - name: Enable grafana service 
