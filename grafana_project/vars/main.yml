@@ -11,4 +11,5 @@ directories:
   - "/etc/prometheus"
   - "/var/lib/prometheus"
   - "/opt/tmp"
+  - "/data"
 prom_server_with_port: ['localhost:9090']
