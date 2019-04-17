@@ -1,70 +1,70 @@
 ---
-# - name: Creation of necessary groups
-#   group:
-#     name: "{{ item }}"
-#     state: present
-#   loop: "{{ grps }}"
+- name: Creation of necessary groups
+  group:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ grps }}"
 
-# - name: Creation of necessary users
-#   user:
-#     name: "{{ user }}"
-#     groups: "{{ item }}"
-#     append: true
-#     create_home: no
-#     shell: /bin/false
-#     expires: -1
-#     state: present
-#   loop: "{{ grps }}"
+- name: Creation of necessary users
+  user:
+    name: "{{ user }}"
+    groups: "{{ item }}"
+    append: true
+    create_home: no
+    shell: /bin/false
+    expires: -1
+    state: present
+  loop: "{{ grps }}"
   
-# - name: Creation of necessary directories
-#   file:
-#     path: "{{ item }}"
-#     owner: "{{ user }}"
-#     group: "{{ group }}"
-#     state: directory
-#     mode: 0755
-#   loop: "{{ directories }}"
+- name: Creation of necessary directories
+  file:
+    path: "{{ item }}"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    state: directory
+    mode: 0755
+  loop: "{{ directories }}"
   
-# - name: check if sources already exist
-#   stat:
-#     path: "/opt/{{ sources_prometheus | basename }}"
-#   register: sources_result
+- name: check if sources already exist
+  stat:
+    path: "/opt/{{ sources_prometheus | basename }}"
+  register: sources_result
   
-# - name: download component sources
-#   become: true
-#   become_user: root
-#   get_url:
-#     url: "{{ sources_prometheus }}"
-#     dest: "/opt/"
-#     validate_certs: "no"
-#     tmp_dest: /tmp/
+- name: download component sources
+  become: true
+  become_user: root
+  get_url:
+    url: "{{ sources_prometheus }}"
+    dest: "/opt/"
+    validate_certs: "no"
+    tmp_dest: /tmp/
     
-# - name: untar sources
-#   unarchive:
-#     src: "/opt/{{ sources_prometheus | basename }}"
-#     dest: "{{ sources_dst }}"
-#     owner: "{{ user }}"
-#     group: "{{ group }}"
-#     remote_src: "yes"
-#     extra_opts: [--strip-components=1]
+- name: untar sources
+  unarchive:
+    src: "/opt/{{ sources_prometheus | basename }}"
+    dest: "{{ sources_dst }}"
+    owner: "{{ user }}"
+    group: "{{ group }}"
+    remote_src: "yes"
+    extra_opts: [--strip-components=1]
     
-# - name: Copy files with multiple changes
-#   copy:
-#     src: "{{ item.src }}"
-#     dest: "{{ item.dest }}"
-#     owner: "{{item.owner}}"
-#     group: "{{item.group}}"
-#     remote_src: "yes"
-#   with_items:
-#     - { src: '/opt/tmp/prometheus', dest: '/usr/local/bin/', owner: 'prometheus', group: 'prometheus'}
-#     - { src: '/opt/tmp/promtool', dest: '/usr/local/bin/', owner: 'prometheus', group: 'prometheus'}
+- name: Copy files with multiple changes
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: "{{item.owner}}"
+    group: "{{item.group}}"
+    remote_src: "yes"
+  with_items:
+    - { src: '/opt/tmp/prometheus', dest: '/usr/local/bin/', owner: 'prometheus', group: 'prometheus'}
+    - { src: '/opt/tmp/promtool', dest: '/usr/local/bin/', owner: 'prometheus', group: 'prometheus'}
     
-# - name: Copy  prometheus.yml 
-#   template:
-#     src: "{{ template_directory }}/prometheus.yml"
-#     dest: "/etc/prometheus/"
-#     owner: "{{ user }}"
-#     group: "{{ group }}" 
+- name: Copy  prometheus.yml 
+  template:
+    src: "{{ template_directory }}/prometheus.yml"
+    dest: "/etc/prometheus/"
+    owner: "{{ user }}"
+    group: "{{ group }}" 
 
 - name: Move consoles directory to /etc/prometheus/
   command: cp -r /opt/tmp/consoles /etc/prometheus/
