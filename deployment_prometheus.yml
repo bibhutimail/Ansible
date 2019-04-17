@@ -3,5 +3,5 @@
   hosts: "prom"
   become: true
   roles:
-    - { role: "grafana_project" }
+    - { role: "prometheus" }
 ...
