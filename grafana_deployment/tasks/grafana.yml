@@ -1,0 +1,14 @@
+---  
+- name: Install Grafana using RPM
+  command: yum install {{ sources_grafana }}
+  
+- name: Enable grafana service 
+  systemd:
+    name: grafana-server
+    enabled: yes
+
+- name: Start grafana service
+  systemd:
+    name: grafana-server
+    daemon_reload: yes
+    state: restarted
