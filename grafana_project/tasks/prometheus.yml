@@ -61,8 +61,8 @@
     - { src: '/opt/tmp/promtool', dest: '/usr/local/bin/', owner: 'prometheus', group: 'prometheus', mode: '0755'}
     
 - name: Copy  prometheus.yml 
-  template:
-    src: "{{ template_directory }}/prometheus.yml"
+  copy:
+    src: "prometheus.yml"
     dest: "/etc/prometheus/"
     owner: "{{ user }}"
     group: "{{ group }}" 
