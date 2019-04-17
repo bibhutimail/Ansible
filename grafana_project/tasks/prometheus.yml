@@ -54,10 +54,11 @@
     dest: "{{ item.dest }}"
     owner: "{{item.owner}}"
     group: "{{item.group}}"
+    mode: "{{item.mode}}"
     remote_src: "yes"
   with_items:
     - { src: '/opt/tmp/prometheus', dest: '/usr/local/bin/', owner: 'prometheus', group: 'prometheus', mode: '0755' }
-    - { src: '/opt/tmp/promtool', dest: '/usr/local/bin/', owner: 'prometheus', group: 'prometheus'}
+    - { src: '/opt/tmp/promtool', dest: '/usr/local/bin/', owner: 'prometheus', group: 'prometheus', mode: '0755'}
     
 - name: Copy  prometheus.yml 
   template:
