@@ -4,19 +4,19 @@
     src: "grafana.repo"
     dest: "/etc/yum.repos.d/"
     
-- name: Install Grafana using RPM
-  yum:
-    name: "{{ sources_grafana }}"
-    state: present
+# - name: Install Grafana using RPM
+#   yum:
+#     name: "{{ sources_grafana }}"
+#     state: present
   
-- name: Enable grafana service 
-  systemd:
-    name: grafana-server
-    enabled: yes
+# - name: Enable grafana service 
+#   systemd:
+#     name: grafana-server
+#     enabled: yes
 
-- name: Start grafana service
-  systemd:
-    name: grafana-server
-    daemon_reload: yes
-    state: restarted
+# - name: Start grafana service
+#   systemd:
+#     name: grafana-server
+#     daemon_reload: yes
+#     state: restarted
 ...
