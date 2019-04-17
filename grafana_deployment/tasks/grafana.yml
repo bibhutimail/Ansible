@@ -4,6 +4,11 @@
     src: "grafana.repo"
     dest: "/etc/yum.repos.d/"
     
+- name: Install Grafana Dependency RPM
+  yum:
+    name: "{{ sources_dep }}"
+    state: present
+    
 - name: Install Grafana using RPM
   yum:
     name: "{{ sources_grafana }}"
