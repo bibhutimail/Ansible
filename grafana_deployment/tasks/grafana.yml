@@ -1,6 +1,8 @@
 ---  
 - name: Install Grafana using RPM
-  command: yum install {{ sources_grafana }}
+  yum:
+    name: {{ sources_grafana }}
+    state: present
   
 - name: Enable grafana service 
   systemd:
