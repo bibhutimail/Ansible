@@ -1,0 +1,6 @@
+---
+prom:
+  hosts:
+    192.168.40.175:
+      ansible_user: root
+...
