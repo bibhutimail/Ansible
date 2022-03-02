@@ -1,0 +1,7 @@
+---
+- name: Grafana Installation
+  hosts: "prom"
+  become: true
+  roles:
+    - { role: "grafana_deployment" }
+...

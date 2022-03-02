@@ -1,0 +1,7 @@
+---
+- name: PROMETHEUS Installation
+  hosts: "prom"
+  become: true
+  roles:
+    - { role: "prometheus" }
+...

@@ -1,0 +1,4 @@
+---
+- name: calling grafana.yml
+  include_tasks: grafana.yml
+...

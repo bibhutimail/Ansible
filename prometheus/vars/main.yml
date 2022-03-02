@@ -1,0 +1,15 @@
+---
+# vars file for grafana_project
+sources_prometheus: "https://github.com/prometheus/prometheus/releases/download/v2.9.0-rc.0/prometheus-2.9.0-rc.0.linux-amd64.tar.gz"
+sources_dst: /opt/tmp
+template_directory: "../templates"
+user: prometheus
+group: prometheus
+grps:
+  - prometheus
+directories:
+  - "/etc/prometheus"
+  - "/var/lib/prometheus"
+  - "/opt/tmp"
+  - "/data"
+prom_server_with_port: "'localhost:9090'"

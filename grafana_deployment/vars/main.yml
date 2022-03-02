@@ -1,0 +1,4 @@
+---
+# vars file for grafana_deployment
+sources_grafana: https://dl.grafana.com/oss/release/grafana-6.1.4-1.x86_64.rpm
+sources_dep: http://mirror.centos.org/centos/7/os/x86_64/Packages/urw-fonts-2.4-16.el7.noarch.rpm

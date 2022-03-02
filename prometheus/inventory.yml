@@ -1,0 +1,6 @@
+---
+prom:
+  hosts:
+    52.14.19.164:
+      ansible_user: bnm
+...
